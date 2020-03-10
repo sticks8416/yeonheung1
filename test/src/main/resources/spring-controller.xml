@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation=
+ " http://www.springframework.org/schema/beans 
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="hacchuuController" class="board.controller.HacchuuController">
+			<property name="hacchuuService" ref="hacchuuServiceImpl"/>	
+	</bean>
+	<bean id="seigyoController" class="board.controller.SeigyoController">
+			<property name="seigyoService" ref="seigyoServiceImpl"/>
+	</bean>
+</beans>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+		 xmlns="http://www.springframework.org/schema/beans"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns:tx="http://www.springframework.org/schema/tx"
+		 xmlns:mvc="http://www.springframework.org/schema/mvc" 
+		 xmlns:websocket="http://www.springframework.org/schema/websocket"
+		 xsi:schemaLocation="http://www.springframework.org/schema/mvc
+		 http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+		 	http://www.springframework.org/schema/beans
+		 	http://www.springframework.org/schema/beans/spring-beans.xsd
+		 	http://www.springframework.org/schema/tx
+		 	http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		 	http://www.springframework.org/schema/websocket 
+ 			http://www.springframework.org/schema/websocket/spring-websocket.xsd">
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<bean destroy-method="close" class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource">
+
+<property value="oracle.jdbc.driver.OracleDriver" name="driverClass"/>
+
+<property value="jdbc:oracle:thin:@localhost:1521:orcl" name="jdbcUrl"/>
+
+<property value="C##kang" name="user"/>
+
+<property value="1234" name="password"/>
+
+<property value="100" name="maxPoolSize"/>
+
+<property value="600" name="maxIdleTime"/>
+
+<property value="300" name="idleConnectionTestPeriod"/>
+
+</bean>
+	<bean id="transactionManager"
+			class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+			<property name="dataSource" ref="dataSource"/>
+			<property name="configLocation"
+						value="classpath:config/mybatis-config.xml"/>
+			<property name="mapperLocations">
+			
+					<value>classpath:config/sqlmap-*.xml</value>
+					
+			</property>
+	</bean>
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate"
+			destroy-method="clearCache">
+			<constructor-arg ref="sqlSessionFactory"/>
+			</bean>
+	<bean id="hacchuuDao" class="board.dao.HacchuuDaoMybatis">
+		<constructor-arg ref="sqlSessionTemplate"></constructor-arg>
+	</bean>
+
+	<bean id="hacchuuServiceImpl" class="board.service.HacchuuServiceImpl">
+		<property name="hacchuuDao" ref="hacchuuDao"/>
+	</bean>
+	<bean id="seigyoDao" class="board.dao.SeigyoDaoMybatis">
+		<constructor-arg ref="sqlSessionTemplate"></constructor-arg>
+	</bean>
+	<bean id="seigyoServiceImpl" class="board.service.SeigyoServiceImpl">
+		<property name="seigyoDao" ref="seigyoDao"/>
+	</bean>
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+			<property name="maxUploadSize" value="10485760" />
+		</bean>
+
+	</beans>

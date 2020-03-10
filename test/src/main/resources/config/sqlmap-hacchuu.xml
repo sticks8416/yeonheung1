@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hacchuuDao">
+<select id="hacchuulist" resultType="map">
+		SELECT hacyu_no,
+		ryhntn_cd,
+		shhn_cd,
+		hacyu_order_number, delete_flag FROM 発注マスタ ORDER BY hacyu_no desc
+	</select>
+		<select id="kensakukekka" parameterType="map" resultType="hashmap">
+		SELECT * FROM
+		発注マスタ WHERE shhn_cd = #{shhn_cd} and ryhntn_cd = #{ryhntn_cd}
+	</select>
+	<delete id="sakujyo" parameterType="map">
+		DELETE FROM
+		発注マスタ WHERE shhn_cd = #{shhn_cd} and ryhntn_cd = #{ryhntn_cd}
+	</delete>
+	</mapper>
