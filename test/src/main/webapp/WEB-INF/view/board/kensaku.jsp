@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-JP"
     pageEncoding="EUC-JP"%>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    <%--  <% List<hacchuuVO> kensakukekka = (List<hacchuuVO>)request.getAttribute("kensakukekka"); %> --%>
  

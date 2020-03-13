@@ -2,9 +2,8 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation=
- " http://www.springframework.org/schema/beans 
- http://www.springframework.org/schema/beans/spring-beans.xsd">
+     xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="hacchuuController" class="board.controller.HacchuuController">
 			<property name="hacchuuService" ref="hacchuuServiceImpl"/>	
@@ -12,4 +11,9 @@
 	<bean id="seigyoController" class="board.controller.SeigyoController">
 			<property name="seigyoService" ref="seigyoServiceImpl"/>
 	</bean>
+	
+<!-- 	<bean id="orderController" class="board.controller.orderController">
+			<property name="orderService" ref="orderServiceImpl"/>
+	</bean> -->
+	
 </beans>
