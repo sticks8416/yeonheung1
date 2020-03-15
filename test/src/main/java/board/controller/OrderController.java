@@ -33,6 +33,7 @@ public class OrderController {
 	public String chuumonn(ModelMap model, HttpSession session, HttpServletRequest req)
 			throws Exception {
 		//현재 있는 아이템들의 리스트를 보여주며(체크박스) 
+		//수량 정해서 보내는 파라미터 하나 따로 만들고 체크박스 맵 형태로 짝지어서 보내야되나??..
 	  //아이디 로그인 -> 장바구니에 담았을때 다른 정보와 같이 세션에 있는 아이디 값도 들어감(따로 칼럼하나 더)  pk.fk 해서 발주리스트랑 연동 시켜서 관리자도 볼 수 있게 해둠
 		 HashMap<String, Object> hashMap3 = new HashMap<>();//해쉬맵 인스턴스화
 	     List<Map<String, Object>> list3 = new ArrayList<>();//리스트 인스턴스화
