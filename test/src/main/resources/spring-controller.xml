@@ -12,8 +12,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 			<property name="seigyoService" ref="seigyoServiceImpl"/>
 	</bean>
 	
-<!-- 	<bean id="orderController" class="board.controller.orderController">
+ 	<bean id="orderController" class="board.controller.OrderController">
 			<property name="orderService" ref="orderServiceImpl"/>
-	</bean> -->
+	</bean>
 	
 </beans>
