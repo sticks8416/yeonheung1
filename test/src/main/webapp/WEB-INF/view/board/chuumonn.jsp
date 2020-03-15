@@ -16,8 +16,8 @@
        <label><input type="checkbox" id ="order" name="注文" value="1"></label>
        </div> 
 		
-
-
+コントローラにこれを渡す。
 </c:forEach>
+
 </body>
 </html>

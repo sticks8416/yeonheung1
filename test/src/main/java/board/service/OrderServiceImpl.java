@@ -1,5 +1,8 @@
 package board.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
 
 import board.dao.OrderDao;
@@ -15,5 +18,9 @@ public class OrderServiceImpl implements OrderService{
 
 	public void setOrderDao(OrderDao orderDao) {
 		this.orderDao = orderDao;
+	}
+	public List<Map<String, Object>> orderlist() throws Exception {
+		
+		return orderDao.orderlist();
 	}
 }

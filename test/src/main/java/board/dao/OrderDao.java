@@ -6,6 +6,8 @@ import java.util.Map;
 import board.domain.HacchuuVO;
 
 	public interface OrderDao {
+
+		List<Map<String, Object>> orderlist() throws Exception;
 	/*
 	 * List<Map<String, Object>> orderlist() throws Exception;
 	 */

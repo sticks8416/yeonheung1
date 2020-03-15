@@ -61,6 +61,12 @@
 	<bean id="seigyoServiceImpl" class="board.service.SeigyoServiceImpl">
 		<property name="seigyoDao" ref="seigyoDao"/>
 	</bean>
+		<bean id="orderDao" class="board.dao.OrderDaoMybatis">
+		<constructor-arg ref="sqlSessionTemplate"></constructor-arg>
+	</bean>
+	<bean id="orderServiceImpl" class="board.service.OrderServiceImpl">
+		<property name="orderDao" ref="orderDao"/>
+	</bean>
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 			<property name="maxUploadSize" value="10485760" />
 		</bean>

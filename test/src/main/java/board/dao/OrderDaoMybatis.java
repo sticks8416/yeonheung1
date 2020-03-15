@@ -19,22 +19,8 @@ public class OrderDaoMybatis implements OrderDao{
 	public void setSqlMapClient(SqlSessionTemplate sqlSessionTemplate) {
 		this.sqlSessionTemplate = sqlSessionTemplate;
 	}
-	/*
-	 * @Override public List<Map<String, Object>> Orderlist(){ return
-	 * sqlSessionTemplate.selectList("Orderlist"); }
-	 */
-	/*
-	 * @Override public List<Map<String, Object>> seigyolist(){ return
-	 * sqlSessionTemplate.selectList("seigyolist"); }
-	 */
-	
-	/*
-	 * @Override public List<Map<String, Object>> kensakukekka(String shhn_cd){
-	 * return sqlSessionTemplate.selectList("kensakukekka"); }
-	 */
-	/*
-	 * @Override public List<OrderVO> kensakukekka(Map map) {
-	 * 
-	 * return sqlSessionTemplate.selectList("kensakukekka", map); }
-	 */
+	@Override
+	public List<Map<String, Object>> orderlist(){
+		return sqlSessionTemplate.selectList("orderlist");
+	}
 }

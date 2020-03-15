@@ -5,6 +5,6 @@
 <mapper namespace="orderDao">
 
 <select id="orderlist" resultType="map">
-		SELECT goods_image, goods_name, goods_qty, goods_price FROM 制御マスタ
+		SELECT goods_image, goods_name, goods_qty, goods_price FROM 注文マスタ
 	</select>
 	</mapper>
