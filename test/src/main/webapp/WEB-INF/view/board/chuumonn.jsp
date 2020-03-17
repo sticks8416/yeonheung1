@@ -10,14 +10,18 @@
 <title>発注</title>
 </head>
 <body>
+<%=request.getSession().getServletContext().getRealPath("/")%>
 <h2>商品リスト</h2>
 <div>
 <c:forEach var="chuumonn" items="${OrderList}" varStatus="loop">
 <div class="container" class="card-body" style= "border-bottom: 1px solid black">
-<p><br><hr width ="50%" class="center">
+<p>
 <div style = "text-align: center">
-       ${chuumonn.GOODS_IMAGES}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${chuumonn.GOODS_NAME}&nbsp;&nbsp;&nbsp;${chuumonn.GOODS_QTY}&nbsp;&nbsp;&nbsp;${chuumonn.GOODS_PRICE}
-       <label><input type="checkbox" id ="order" name="注文" value="1"></label>
+
+      <div><img src="../upload/${chuumonn.GOODS_IMAGE}" width="50" height="50" alt="no img">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${chuumonn.GOODS_NAME}&nbsp;&nbsp;&nbsp;${chuumonn.GOODS_QTY}&nbsp;&nbsp;&nbsp;${chuumonn.GOODS_PRICE}
+       
+       　　　<!-- 　数量を送れるボックスをつくること -->
+       <label><input type="checkbox" id ="order" name="注文" value="1"></label></div>
        </div> 
        </div>
 <!--        ここに数量を頂けるようしておく -->
