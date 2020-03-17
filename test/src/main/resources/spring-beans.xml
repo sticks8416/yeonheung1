@@ -55,6 +55,12 @@
 	<bean id="hacchuuServiceImpl" class="board.service.HacchuuServiceImpl">
 		<property name="hacchuuDao" ref="hacchuuDao"/>
 	</bean>
+	<bean id="memberServiceImpl" class="board.service.MemberServiceImpl">
+		<property name="memberDao" ref="memberDao"/>
+	</bean>
+	<bean id="memberDao" class="board.dao.MemberDaoMybatis">
+		<constructor-arg ref="sqlSessionTemplate"></constructor-arg>
+	</bean>
 	<bean id="seigyoDao" class="board.dao.SeigyoDaoMybatis">
 		<constructor-arg ref="sqlSessionTemplate"></constructor-arg>
 	</bean>

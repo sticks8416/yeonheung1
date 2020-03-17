@@ -12,6 +12,7 @@
 	<typeAliases>
 		<typeAlias alias="hacchuuVO" type="board.domain.HacchuuVO"/>
 		<typeAlias alias="seigyoVO" type="board.domain.SeigyoVO"/>
+		<typeAlias alias="memberVO" type="board.domain.MemberVO"/>
 	<!-- 	<typeAlias alias="orderVO" type="board.domain.OrderVO"/> -->
 	</typeAliases>
 </configuration>

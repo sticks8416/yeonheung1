@@ -15,5 +15,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  	<bean id="orderController" class="board.controller.OrderController">
 			<property name="orderService" ref="orderServiceImpl"/>
 	</bean>
-	
+	<bean id="memberController" class="board.controller.MemberController">
+			<property name="memberService" ref="memberServiceImpl"/>
+	</bean>
 </beans>
