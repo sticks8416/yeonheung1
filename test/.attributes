@@ -1,6 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-*.* linguist-language=Javascript
+*.* linguist-language=Java
 
 # Standard to msysgit
 *.doc	 diff=astextplain
