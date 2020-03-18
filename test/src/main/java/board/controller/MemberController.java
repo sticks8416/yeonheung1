@@ -55,12 +55,12 @@ public class MemberController {
 		this.memberService = memberService;
 	}
 
-	@RequestMapping(value = "/member/main", method = RequestMethod.GET)
+	@RequestMapping(value = "/board/login", method = RequestMethod.GET)
 	public String main(Model model) {
-		return "/member/main";
+		return "/board/login";
 	}
 
-	@RequestMapping(value = "/member/main", method = RequestMethod.POST)
+	@RequestMapping(value = "/board/login", method = RequestMethod.POST)
 	public String login(Model model, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {
 		String email = req.getParameter("email");
 		String pass = req.getParameter("password");
@@ -69,10 +69,10 @@ public class MemberController {
 		map.put("password", pass);
 		MemberVO memberVO = memberService.memberLogin(map);
 		if (memberVO == null) {
-			return "redirect:/member/main";
+			return "redirect:/board/login";
 		} else {
 			session.setAttribute("member", memberVO);
-			return "redirect:/board/list";
+			return "redirect:/board/main";
 		}
 
 	}
