@@ -2,6 +2,7 @@
 * text=auto
 
 # Custom for Visual Studio
+* linguist-vendored
 *.js linguist-vendored=false
 
 # Standard to msysgit
