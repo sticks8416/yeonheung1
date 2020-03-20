@@ -39,17 +39,17 @@ overflow: auto
 <c:if test="${empty member}">
 	<form action="<c:url value='/member/main/'/>" method="POST" >
 <div class="form-group" style="margin:auto;width:40%">
-<h2>로그인</h2>
-	<label>이메일</label>
+<h2>ログイン</h2>
+	<label>メール</label>
 		<input type="text" class="form-control" id="email" name="email" placeholder="E-mail" required>
 <div class="check_font" id="id_check"></div>
-<label>비밀번호</label>
+<label>暗証番号</label>
 		<input type="password" class="form-control" id="password" name="password" placeholder="PASSWORD" required>
 
 <p></p>
 				<button class="btn btn-success" onclick= "location.href=<c:url value='/board/list/${member.email}'/>">로그인</button>
-	<a class ="btn btn-danger" href =<c:url value="/member/matchPW"/>>비밀번호 찾기</a>
-			<a class ="btn btn-warning" href =<c:url value="/member/signup"/>>회원가입</a>
+	<a class ="btn btn-danger" href =<c:url value="/member/matchPW"/>>暗証番号忘れた場合</a>
+			<a class ="btn btn-warning" href =<c:url value="/member/signup"/>>会員登録</a>
 	</div>			
 	</form>
 	</c:if>
