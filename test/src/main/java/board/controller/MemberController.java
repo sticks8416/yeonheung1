@@ -76,21 +76,21 @@ public class MemberController {
 		}
 
 	}
-	@RequestMapping(value = "/member/signup", method = RequestMethod.GET)
+	@RequestMapping(value = "/board/signup", method = RequestMethod.GET)
 	public String signUp1(Model model, HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		
-		return "/member/signup";
+		return "/board/signup";
 	}
-	@RequestMapping(value = "/member/signup", method = RequestMethod.POST)
+	@RequestMapping(value = "/board/signup", method = RequestMethod.POST)
 	public String signUp2(Model model,String email, MemberVO memberVO, HttpServletRequest req) {
 		model.addAttribute("memberVO", new MemberVO());
 		email = req.getParameter("email");
 		int check = memberService.matchID(email);
 		if(check==1) {
 			System.out.println("이미 존재하는 아이디 입니다.");
-			return "redirect:/member/signup";
+			return "redirect:/board/signup";
 		}
 		else {
 		memberService.memberInsert(memberVO);

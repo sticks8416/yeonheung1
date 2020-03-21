@@ -84,7 +84,7 @@ butt{
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-<a class="topnav-icons fa fa-home w3-left w3-bar-item w3-button" title="Home" style ="font-size:25px; color:white" href="<c:url value="/board/list"/>"></a>
+<a class="topnav-icons fa fa-home w3-left w3-bar-item w3-button" title="Home" style ="font-size:25px; color:white" href="<c:url value="/board/login"/>"></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -99,20 +99,20 @@ butt{
     <a href="<c:url value="/requestList"/>"><i class="far fa-bell" style ="font-size:25px"></i></a>&nbsp;&nbsp;
  <form class="form-inline">
     <input class="form-control mr-sm-2" type="text" placeholder="Search" name ="search">
-    <button class="btn btn-success" type="submit">search User</button>
+    <button class="btn btn-success" type="submit">検索</button>
 </form>
   <div class="w3-container">   
   <div class="w3-dropdown-click">
     <button onclick="myFunction()" class="fas fa-bars" style= "font-size: 30px"></button>
     <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
     <c:if test="${empty member.email}">
-      <a href="<c:url value='/member/main'/>" class="w3-bar-item w3-button">로그인</a>
-      <a href="#" class="w3-bar-item w3-button">회원가입</a>
+      <a href="<c:url value='/member/main'/>" class="w3-bar-item w3-button">ログイン</a>
+      <a href="#" class="w3-bar-item w3-button">会員登録</a>
       
       </c:if>
        <c:if test="${not empty member.email}">
-      <a href="<c:url value='/member/logout'/>" class="w3-bar-item w3-button">로그아웃</a>
-      <a href="<c:url value='/member/editProfile/{email}'/>" class="w3-bar-item w3-button">내정보</a>
+      <a href="<c:url value='/member/logout'/>" class="w3-bar-item w3-button">ログアウト</a>
+      <a href="<c:url value='/member/editProfile/{email}'/>" class="w3-bar-item w3-button">プロフィール</a>
       
       </c:if>
     </div>

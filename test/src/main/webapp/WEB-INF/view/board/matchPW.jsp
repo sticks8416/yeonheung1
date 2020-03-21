@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>메인창</title>
+<title>暗証番号マッチ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -17,43 +17,26 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<style>
-div.container{
-border: 1px solid grey; 
-padding: 10px 10px 10px 10px;  
-margin-top: 15px; 
-margin-bottom: 15px;
-height: 150px;  
-width: 330px; 
-
-overflow: auto
-
-
-}
-
-
-</style>
 <body>
 <%@include file="header.jsp" %>
-
-<c:if test="${empty member}">
-	<form action="<c:url value='/member/main/'/>" method="POST" >
-<div class="form-group" style="margin:auto;width:40%">
-<h2>ログイン</h2>
-	<label>メール</label>
+<div style = "width:40%; position:relateive; margin:auto">
+<h2>暗証番後マッチ</h2>
+		<form action="<c:url value="/member/matchPW"/>" method="POST" enctype="multipart/form-data" >
+				<div class="form-group" style="margin:auto">
+						<label>メール</label>
 		<input type="text" class="form-control" id="email" name="email" placeholder="E-mail" required>
 <div class="check_font" id="id_check"></div>
-<label>暗証番号</label>
-		<input type="password" class="form-control" id="password" name="password" placeholder="PASSWORD" required>
-
-<p></p>
-				<button class="btn btn-success" onclick= "location.href=<c:url value='/board/list/${member.email}'/>">ログイン</button>
-	<a class ="btn btn-danger" href =<c:url value="/board/matchPW"/>>暗証番号忘れた場合</a>
-			<a class ="btn btn-warning" href =<c:url value="/board/signup"/>>会員登録</a>
-	</div>			
-	</form>
-	</c:if>
-	<%@include file="footer.jsp" %>
+		<label>お名前</label>
+		<input type="text" class="form-control" id="name" name="name" placeholder="NAME" required>					
+		<p></p>
+				<div>
+						<input  class="btn btn-success" type="submit" value="찾기">
+						<a class="btn btn-info" href="<c:url value="/board/list" />">リスト</a>
+				</div>
+				</div>
+				</form>
+				</div>
+		<%@include file="footer.jsp" %>
 </body>
 <script>
 function myFunction() {
