@@ -30,7 +30,7 @@
 		<input type="text" class="form-control" id="name" name="name" placeholder="NAME" required>					
 		<p></p>
 				<div>
-						<input  class="btn btn-success" type="submit" value="찾기">
+						<input  class="btn btn-success" type="submit" value="暗証番後探し">
 						<a class="btn btn-info" href="<c:url value="/board/list" />">リスト</a>
 				</div>
 				</div>

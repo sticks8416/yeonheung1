@@ -39,7 +39,7 @@
 </div>
 <p></p>
 
-				<input class="btn btn-success" type="submit" value="회원가입">
+				<input class="btn btn-success" type="submit" value="会員登録">
 						<a class="btn btn-info" 	href="<c:url value="/board/list" />">リスト</a>
 		</form>		
 		</div>
