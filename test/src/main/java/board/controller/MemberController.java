@@ -98,14 +98,14 @@ public class MemberController {
 	}
 	}
 
-	@RequestMapping(value = "/member/matchPW", method = RequestMethod.GET)
+	@RequestMapping(value = "/board/matchPW", method = RequestMethod.GET)
 	public String matchPW(Model model, HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		
-		return "/member/matchPW";
+		return "/board/matchPW";
 	}
-	@RequestMapping(value = "/member/matchPW", method = RequestMethod.POST)
+	@RequestMapping(value = "/board/matchPW", method = RequestMethod.POST)
 	public String matchPW2(Model model, MemberVO memberVO, HttpServletRequest req) {
 		String email = req.getParameter("email");
 		String name = req.getParameter("name");
@@ -119,36 +119,36 @@ public class MemberController {
 			model.addAttribute("memberVO", memberService.matchPW(map));
 			System.out.println("비번찾기 성공");
 			System.out.println();
-			return "/member/matchPW2";
+			return "/board/matchPW2";
 		}
 		else
 			System.out.println("비번찾기 실패");
-		return "/member/signup";
+		return "/board/signup";
 	}	
-	@RequestMapping(value = "/member/logout", method = RequestMethod.GET)
+	@RequestMapping(value = "/board/logout", method = RequestMethod.GET)
 	public String logout(Model model, HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
 		HttpSession session = req.getSession();
 		session.invalidate();
 		System.out.println("해제완료!");
 
-		return "/member/main";
+		return "/board/main";
 	}
-	@RequestMapping(value = "/member/editProfile", method = RequestMethod.GET)
+	@RequestMapping(value = "/board/editProfile", method = RequestMethod.GET)
 	public String editProfile(HttpSession session) {
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		if(memberVO == null) {
-			return "/member/main";
+			return "/board/main";
 		}
-			return "/member/editProfile";
+			return "/board/editProfile";
 		}
 
-	@RequestMapping(value = "/member/editProfile", method = RequestMethod.POST)
+	@RequestMapping(value = "/board/editProfile", method = RequestMethod.POST)
 	public String editProfile(@RequestParam("name")String name,@RequestParam("password")String password, HttpSession session, HttpServletRequest req) {
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		memberVO.setName(name);
 		memberVO.setPassword(password);
 		memberService.memberUpdate(memberVO);
-		return "redirect:/board/list";
+		return "redirect:/board/main";
 	}
 }
